@@ -1,0 +1,483 @@
+# 🔐 Random Password Generator
+
+A secure and user-friendly **Random Password Generator** built using Python. The application provides a graphical user interface (GUI) that allows users to generate strong and customizable passwords based on their selected requirements.
+
+---
+
+## 📌 Project Overview
+
+This project is developed as **Task 3 – Random Password Generator**.
+
+The application allows users to create secure passwords by selecting the desired password length and character types.
+
+Unlike basic password generators that use the `random` module, this project uses Python's **`secrets` module** for cryptographically secure password generation.
+
+---
+
+## ✨ Features
+
+* 🔐 Secure password generation using Python's `secrets` module
+* 🖥️ Graphical User Interface using Tkinter
+* 🎚️ Password length control from **8 to 64 characters**
+* 🔠 Uppercase letters (`A-Z`)
+* 🔡 Lowercase letters (`a-z`)
+* 🔢 Numbers (`0-9`)
+* 🔣 Symbols
+* ✅ Requires at least **2 character types**
+* 🛡️ Guarantees at least one character from every selected type
+* 📊 Password strength indicator
+* 🔴 Weak
+* 🟡 Medium
+* 🟢 Strong
+* 🚫 Option to exclude ambiguous characters:
+
+  * `0`
+  * `O`
+  * `l`
+  * `1`
+* 📋 Copy password to clipboard using `pyperclip`
+* ⚡ Password automatically copied after generation
+* 📜 Displays the last **5 generated passwords**
+* 🔄 Generate multiple passwords without restarting
+* 💾 Password history is stored only during the current session
+* 🔒 Password history is not saved to any file
+* ⚠️ Input validation for password length and character selection
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology    | Purpose                                      |
+| ------------- | -------------------------------------------- |
+| **Python**    | Core programming language                    |
+| **Tkinter**   | Graphical User Interface                     |
+| **secrets**   | Cryptographically secure password generation |
+| **string**    | Character sets                               |
+| **pyperclip** | Clipboard integration                        |
+
+---
+
+## 📂 Project Structure
+
+```text
+TASK-3-Random-Password-Generator/
+│
+├── password_generator.py
+└── README.md
+```
+
+---
+
+## ⚙️ Requirements
+
+### Python
+
+Make sure Python is installed on your system.
+
+Check the installed version:
+
+```bash
+python --version
+```
+
+### Install Pyperclip
+
+Open Command Prompt or PowerShell and run:
+
+```bash
+pip install pyperclip
+```
+
+### Tkinter
+
+Tkinter is normally included with standard Python installations on Windows.
+
+The following modules are used by the project:
+
+```python
+import tkinter
+import secrets
+import string
+import pyperclip
+```
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+### 2. Open the Project Folder
+
+```bash
+cd TASK-3-Random-Password-Generator
+```
+
+### 3. Install Required Package
+
+```bash
+pip install pyperclip
+```
+
+### 4. Run the Application
+
+```bash
+python password_generator.py
+```
+
+---
+
+## 🎯 How to Use
+
+### Step 1 — Launch the Application
+
+When the application starts, no password is generated automatically.
+
+### Step 2 — Select Password Length
+
+Use the slider to select a password length between:
+
+```text
+8 – 64 characters
+```
+
+### Step 3 — Select Character Types
+
+Choose at least **two** of the following:
+
+* Uppercase letters
+* Lowercase letters
+* Numbers
+* Symbols
+
+### Step 4 — Exclude Ambiguous Characters
+
+Enable:
+
+```text
+Exclude ambiguous characters (0, O, l, 1)
+```
+
+if you don't want visually similar characters.
+
+### Step 5 — Generate Password
+
+Click:
+
+```text
+🔑 GENERATE PASSWORD
+```
+
+The application will generate a secure password.
+
+### Step 6 — Automatic Clipboard Copy
+
+After generation, the password is automatically copied to the clipboard.
+
+You can also click:
+
+```text
+📋 COPY
+```
+
+to copy it again.
+
+### Step 7 — Check Password Strength
+
+The application displays:
+
+```text
+Weak
+Medium
+Strong
+```
+
+along with a visual strength bar.
+
+### Step 8 — View History
+
+The application displays the **last 5 generated passwords** during the current session.
+
+---
+
+## 🔒 Security Features
+
+### Cryptographically Secure Generation
+
+The application uses:
+
+```python
+secrets
+```
+
+instead of:
+
+```python
+random
+```
+
+The `secrets` module is designed for generating security-sensitive random values.
+
+---
+
+### Character Type Guarantee
+
+If the user selects:
+
+```text
+A-Z
+a-z
+0-9
+Symbols
+```
+
+the generated password is guaranteed to contain at least one character from every selected category.
+
+For example:
+
+```text
+A7@kP2#m
+```
+
+contains uppercase letters, lowercase letters, numbers, and symbols.
+
+---
+
+### Minimum Password Length
+
+The application enforces a minimum password length of:
+
+```text
+8 characters
+```
+
+---
+
+### Minimum Character Diversity
+
+At least **two character types** must be selected before a password can be generated.
+
+If the user selects only one type, the application displays an error message.
+
+---
+
+## 🚫 Ambiguous Character Exclusion
+
+Some characters can be visually confusing:
+
+```text
+0
+O
+l
+1
+```
+
+The application provides an option to exclude them.
+
+For example, with the option enabled:
+
+```text
+0 → excluded
+O → excluded
+l → excluded
+1 → excluded
+```
+
+This makes passwords easier to read and manually enter.
+
+---
+
+## 📊 Password Strength Indicator
+
+The application provides a simple password strength estimate based on:
+
+* Password length
+* Number of selected character types
+* Character diversity
+
+The strength levels are:
+
+### 🔴 Weak
+
+Shorter password with limited character diversity.
+
+### 🟡 Medium
+
+Reasonably long password with multiple character types.
+
+### 🟢 Strong
+
+Longer password with greater character diversity.
+
+> **Note:** The strength indicator is a simple project-level estimate and is not intended to replace a professional password-strength analysis tool.
+
+---
+
+## 📋 Clipboard Integration
+
+The project uses the `pyperclip` library to copy generated passwords to the system clipboard.
+
+After clicking:
+
+```text
+🔑 GENERATE PASSWORD
+```
+
+the password is automatically copied.
+
+The user can also manually copy the password using:
+
+```text
+📋 COPY
+```
+
+---
+
+## 📜 Password History
+
+The application keeps the **last 5 generated passwords** in memory.
+
+Example:
+
+```text
+1. Xk7@Lm92#Qp
+2. P9!aKx2$Lm
+3. 7#RtYp@82Q
+4. H2@kLm9!Px
+5. Q8$xKp2#Lm
+```
+
+### Security Considerations
+
+The history:
+
+* Is stored only in memory
+* Is limited to the last 5 passwords
+* Is not written to a file
+* Is not stored in a database
+* Is cleared when the application closes
+
+---
+
+## 🔄 Application Workflow
+
+```text
+        START
+          │
+          ▼
+   Select Password Length
+          │
+          ▼
+   Select Character Types
+          │
+          ▼
+ At Least 2 Types Selected?
+       /          \
+     NO            YES
+     │              │
+     ▼              ▼
+ Show Error    Generate Password
+                    │
+                    ▼
+             Secure `secrets`
+                    │
+                    ▼
+       Guarantee Selected Types
+                    │
+                    ▼
+          Calculate Strength
+                    │
+                    ▼
+          Copy to Clipboard
+                    │
+                    ▼
+         Add to Last 5 History
+                    │
+                    ▼
+                  END
+```
+
+---
+
+## 🧠 Python Concepts Demonstrated
+
+This project demonstrates several Python programming concepts:
+
+* Variables
+* Functions
+* Classes and objects
+* Conditional statements
+* Loops
+* Lists
+* Strings
+* Exception handling
+* Modules and libraries
+* Object-oriented programming
+* Event-driven programming
+* GUI development
+* Secure random generation
+* Clipboard integration
+
+---
+
+## 🎓 Learning Objectives
+
+Through this project, the following concepts are practiced:
+
+1. Building a Python GUI using Tkinter
+2. Working with external Python packages
+3. Understanding secure random generation
+4. Using the `secrets` module
+5. Handling user input and validation
+6. Working with checkboxes and sliders
+7. Updating GUI elements dynamically
+8. Implementing clipboard functionality
+9. Managing temporary session data
+10. Applying basic password-security principles
+
+---
+
+## 🔮 Future Improvements
+
+The project can be enhanced in the future with:
+
+* 🌙 Dark mode
+* 👁️ Show/Hide password button
+* 📈 Advanced password entropy calculation
+* 🎨 Custom GUI themes
+* 🧹 Clear history button
+* 🔢 Custom minimum and maximum length
+* ⚙️ Custom symbol selection
+* 🔐 Password security recommendations
+* 📱 Responsive interface
+* 🖥️ PyQt-based advanced interface
+
+---
+
+## ⚠️ Security Note
+
+This application is intended for **educational purposes and password generation**.
+
+Generated passwords should be handled carefully. Although the application does not save password history to files, passwords are temporarily displayed in the application and copied to the system clipboard.
+
+For highly sensitive accounts, users should consider using a trusted password manager.
+
+---
+
+## 👨‍💻 Author
+
+**Shaik Mohammed Khaiser Hussain**
+
+Computer Science and Engineering (CSE) Student
+
+---
+
+## 📜 License
+
+This project is created for **educational and learning purposes**.
+
+You are free to study, modify, and improve the project for educational use.
